@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="ion-page">
     <ion-header>
       <ion-toolbar>
         <ion-title>ZipInfo</ion-title>
@@ -17,12 +17,13 @@
 import ZipSearch from "../components/ZipSearch";
 import ZipInfo from "../components/ZipInfo";
 import ClearInfo from "../components/ClearInfo";
-
 export default {
   name: "home",
   components: { ZipSearch, ZipInfo, ClearInfo },
   data() {
-    return { info: null };
+    return {
+      info: null
+    };
   },
   methods: {
     async getZipInfo(zip) {
@@ -30,17 +31,17 @@ export default {
       if (res.status == 404) {
         this.showAlert();
       }
-      this.info = res;
+      this.info = await res.json();
     },
     clearInfo() {
       this.info = null;
     },
-    showAlert(err) {
+    showAlert() {
       return this.$ionic.alertController
         .create({
           header: "Not Valid",
-          message: err,
-          buttons: ["Try again"]
+          message: "Please enter a valid US zipcode",
+          buttons: ["OK"]
         })
         .then(a => a.present());
     }
