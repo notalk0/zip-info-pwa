@@ -1,10 +1,11 @@
 # zip-info-pwa
 
-## Live Demo
+### Live Demo
 https://zip-finder-3d108.firebaseapp.com/
 
-## Follow along tutorial
+### Follow along tutorial
 Build a PWA With Vue & Ionic 4 - https://www.youtube.com/watch?v=6H1wftPS0oo
+
 
 ## Project setup
 ```
